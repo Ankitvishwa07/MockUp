@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
-
+import ironman from "./assets/ironman.jpg";
 const movies = [
-  { title: "Iron Man", year: "2008", poster: "https://m.media-amazon.com/images/I/81aA7hEEykL._AC_SY679_.jpg", icon: "https://cdn-icons-png.flaticon.com/512/1246/1246307.png", color: "#E62429", description: "Tony Stark builds the first Iron Man suit and begins the MCU." },
+  { title: "Iron Man", year: "2008", poster: "https://m.media-amazon.com/images/I/81aA7hEEykL._AC_SY679_.jpg", icon: ironman, color: "#E62429", description: "Tony Stark builds the first Iron Man suit and begins the MCU." },
   { title: "Hulk", year: "2008", poster: "https://image.tmdb.org/t/p/original/2nBpExDoInX3VreBsIm9qOTqXs8.jpg", icon: "https://cdn-icons-png.flaticon.com/512/616/616408.png", color: "#4CAF50", description: "Bruce Banner becomes the Hulk after a gamma radiation experiment goes wrong." },
   { title: "Thor", year: "2011", poster: "https://c8.alamy.com/comp/R2FK2G/thor-the-dark-world-year-2013-usa-director-alan-taylor-chris-hemsworth-movie-poster-usa-R2FK2G.jpg", color: "#2196F3", description: "Thor is banished to Earth and must prove himself worthy." },
   { title: "Captain America: The First Avenger", year: "2011", poster: "https://www.moriareviews.com/rongulator/wp-content/uploads/Captain-America-The-First-Avenger-2011-poster.jpg", icon: "https://cdn-icons-png.flaticon.com/512/616/616408.png", color: "#FFC107", description: "Steve Rogers becomes Captain America during World War II." },
@@ -21,16 +21,16 @@ export default function Timeline() {
     const bg = bgRef.current;
     const sections = document.querySelectorAll(".section");
 
-    // Intersection Observer for fade-in
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("fade-in");
         });
       },
       { threshold: 0.3 }
     );
-    sections.forEach(section => observer.observe(section));
+
+    sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -38,7 +38,6 @@ export default function Timeline() {
       const scrollPercent = (scrollTop / docHeight) * 100;
       fill.style.height = `${scrollPercent}%`;
 
-      // Determine current section
       let currentSection = 0;
       sections.forEach((section, index) => {
         const rect = section.getBoundingClientRect();
@@ -48,13 +47,12 @@ export default function Timeline() {
       const color = movies[currentSection].color;
       fill.style.background = color;
 
-      // Dynamic full-screen radial background glow
       bg.style.background = `radial-gradient(circle at center, ${color}55 0%, ${color}11 100%)`;
       bg.style.transition = "background 0.5s ease";
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial run
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -64,20 +62,29 @@ export default function Timeline() {
 
   return (
     <div className="container">
-      {/* Glow Background */}
       <div className="glow-overlay" ref={bgRef}></div>
 
-      {/* Timeline */}
       <div className="timeline">
         <div className="timeline-fill" ref={fillRef}></div>
       </div>
 
-      {/* Sections */}
       {movies.map((movie, index) => (
-        <section key={index} className={`section ${index % 2 === 0 ? "left" : "right"}`}>
+        <section
+          key={index}
+          className={`section ${index % 2 === 0 ? "left" : "right"}`}
+        >
+          {/* Clickable Center Icon */}
           <div className="icon-wrapper">
-            <div className="icon" style={{ borderColor: movie.color }}>
-              <img src={movie.icon} alt="icon" />
+            <div
+              className="icon"
+              style={{ borderColor: movie.color }}
+              onClick={() =>
+                document
+                  .querySelectorAll(".section")
+                  [index].scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              <img src={movie.icon} alt={movie.title} />
             </div>
           </div>
 
@@ -86,8 +93,10 @@ export default function Timeline() {
               src={movie.poster}
               alt={movie.title}
               style={{
-                boxShadow: `0 0 150px ${movie.color}88, 0 0 300px ${movie.color}55, 0 0 450px ${movie.color}33, 0 40px 120px rgba(0,0,0,0.6)`,
-                transition: "box-shadow 0.5s ease"
+                boxShadow: `0 0 150px ${movie.color}88,
+                            0 0 300px ${movie.color}55,
+                            0 0 450px ${movie.color}33,
+                            0 40px 120px rgba(0,0,0,0.6)`
               }}
             />
             <div className="info">

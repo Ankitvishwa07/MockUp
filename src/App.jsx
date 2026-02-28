@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Section from "./pages/Section";
 import Timeline from "./Timeline";
 import HulkPage from "./HulkPage";
+import IronMan from "./IronMan";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/scroll" element={<Section />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/hulk" element={<HulkPage />} />
+        <Route path="/ironman" element={<IronMan />} />
       </Routes>
     </Router>
   );

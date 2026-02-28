@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  background-color: #000;
+}
+
+/* 🔴 Main Container */
+.ironman-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #330000, #000000);
+  color: white;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+/* 🔴 GOLD METALLIC TITLE */
+.ironman-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 110px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+  3px 3px 0 #cccccc,
+  6px 6px 0 #999999,
+  0 0 40px rgba(255, 255, 255, 0.8);
+    
+  margin-bottom: 50px;
+  letter-spacing: 5px;
+}
+
+/* 🔴 Banner */
+.ironman-banner {
+  width: 70%;
+  margin: 0 auto 50px auto;
+  background: linear-gradient(to right, #660000, #990000);
+  padding: 40px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+}
+
+.banner-img {
+  width: 320px;
+  height: auto;
+}
+
+.banner-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: white;
+}
+
+/* 🔴 Info Card */
+.ironman-card {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 60px;
+  border: 3px solid #ffd700;
+  border-radius: 30px;
+  background: #0d0d0d;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+.ironman-card h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 50px;
+  color: #ffd700;
+  margin-bottom: 30px;
+}
+
+.quote {
+  font-family: "Bebas Neue", sans-serif;
+  font-style: italic;
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #ffcc00;
+}
+
+.power-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 30px 0;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.stats {
+  font-family: "Bebas Neue", sans-serif;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #cccccc;
+}
+
+/* 🔴 Paragraph Styling */
+.ironman-info {
+  font-family: "Bebas Neue", sans-serif;
+  width: 85%;
+  margin: 60px auto;
+  font-size: 24px;
+  line-height: 1.9;
+  text-align: left;
+  color: #e6e6e6;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.ironman-info::first-letter {
+  font-size: 42px;
+  color: #ffd700;
+}
+
+/* 🔴 Arc Button */
+.arc-section {
+  font-family: "Bebas Neue", sans-serif;
+  margin-top: 60px;
+  font-size: 40px;
+}
+
+.arc-link {
+  font-family: "Bebas Neue", sans-serif;
+  background-color: #ffd700;
+  color: black;
+  padding: 15px 30px;
+  margin-left: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 22px;
+}
+
+.arc-link:hover {
+  background-color: #ffae00;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+}
+
+/* 🔴 Model */
+.model-container {
+  width: 95%;
+  max-width: 1200px;
+  height: 650px;
+  margin: 60px auto;
+  border: 3px solid #ffd700;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+  background: black;
+}
+
+.model-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

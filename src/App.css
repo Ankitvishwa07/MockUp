@@ -1,0 +1,167 @@
+
+/* ===== Starry Background ===== */
+body {
+  margin: 0;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+  background: radial-gradient(circle at top, #0f0f18, #000);
+}
+
+/* Small star layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    50px 100px white,
+    120px 250px white,
+    200px 400px white,
+    320px 150px white,
+    450px 600px white,
+    600px 300px white,
+    750px 700px white,
+    900px 200px white,
+    1050px 500px white,
+    1200px 400px white,
+    1350px 800px white,
+    1500px 100px white,
+    1650px 650px white,
+    1800px 350px white,
+    300px 900px white,
+    800px 1000px white,
+    1100px 1200px white,
+    1600px 900px white;
+  z-index: -1;
+  pointer-events: none;
+  animation: twinkle 4s infinite alternate ease-in-out;
+}
+
+/* Slight glow layer */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: rgba(255,255,255,0.8);
+  box-shadow:
+    200px 300px rgba(255,255,255,0.8),
+    500px 700px rgba(255,255,255,0.8),
+    900px 500px rgba(255,255,255,0.8),
+    1400px 800px rgba(255,255,255,0.8);
+  z-index: -1;
+  pointer-events: none;
+  animation: twinkle 6s infinite alternate ease-in-out;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* ===== Container ===== */
+.container {
+  position: relative;
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 100vh;
+  background: white;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.timeline-fill {
+  width: 100%;
+  height: 0%;
+  background: #E62429;
+  transition: height 0.2s ease-out, background 0.3s ease;
+}
+
+/* ===== Sections ===== */
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.fade-in { opacity: 1; }
+
+/* Alternate layout */
+.section.left { justify-content: flex-start; }
+.section.right { justify-content: flex-end; }
+
+/* ===== Content Animation ===== */
+.content {
+  width: 40%;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Slide-in positions */
+.section.left .content { transform: translateX(-150px); opacity: 0; }
+.section.right .content { transform: translateX(150px); opacity: 0; }
+
+/* When visible */
+.section.fade-in .content { transform: translateX(0); opacity: 1; }
+
+/* ===== Poster ===== */
+.content img {
+  width: 220px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== Info Text ===== */
+.info h1 { margin: 0; font-size: 2rem; }
+.info h3 { margin: 5px 0; opacity: 0.7; }
+
+/* ===== Icon On Timeline ===== */
+.icon-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #111;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.icon img { width: 60%; }
+.icon:hover { transform: scale(1.1); }

@@ -1,0 +1,169 @@
+/* ===== Global Reset ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Main Container ===== */
+.container {
+  background: #000000;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===== Logo Section ===== */
+.logo-section {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 250px;
+}
+
+/* ===== Posters Section ===== */
+.poster-section {
+  padding: 2rem 0;
+}
+
+.outer-poster {
+  display: flex;
+  justify-content: center;
+}
+
+.posters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.posters img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #e62429;
+  box-shadow: 0 10px 30px rgba(230, 36, 41, 0.4);
+  transition: all 0.3s ease;
+}
+
+.posters img:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(230, 36, 41, 0.6);
+  border-color: #ff6b35;
+}
+
+/* ===== Button Section ===== */
+.button-section {
+  min-height: 20vh;
+  background: #000;
+  color: white;
+
+  display: flex;
+  justify-content: space-between; /* KEY LINE */
+  align-items: center;
+
+  padding: 0 80px;
+}
+
+/* Left Text Block */
+.text-content {
+  max-width: 600px;
+}
+
+.main-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;     /* Footer size */
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #e62429;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;     /* Same as heading */
+  line-height: 1.6;
+  color: #bbb;
+}
+
+/* Button */
+.marvel-btn {
+  background: #e62429;
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.marvel-btn:hover {
+  background: #ff2e33;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #e62429;
+}
+
+
+
+/* ===== Global Reset ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Fullscreen YouTube Background ===== */
+.video-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.youtube-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 ratio */
+  min-height: 100vh;
+  min-width: 177.77vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== Dark Overlay ===== */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Marvel Text ===== */

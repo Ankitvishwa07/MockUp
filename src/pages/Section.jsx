@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../index.css";
 
 export default function Section() {
@@ -67,7 +68,9 @@ export default function Section() {
           </p>
         </div>
 
-        <button className="marvel-btn">ENTER TIMELINE</button>
+        <NavLink to={"/timeline"}>
+          <button className="marvel-btn">ENTER TIMELINE</button>
+        </NavLink>
       </div>
     </div>
   );

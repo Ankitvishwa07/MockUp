@@ -9,8 +9,6 @@ import "./App.css";
 function App() {
   return (
     <Router>
-
-
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/scroll" element={<Section />} />
